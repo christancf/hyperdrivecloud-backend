@@ -1,4 +1,4 @@
-name: Build
+name: Cloud Scan
 on:
   push:
     branches:
