@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hyperdrive
+  namespace: default-1713085409400
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hyperdrive
+  template:
+    metadata:
+      labels:
+        app: hyperdrive
+    spec:
+      containers:
+        - name: hyperdrive
+          image: hyperdrivecloud.azurecr.io/ctse/hyperdrive:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/os: linux
+      restartPolicy: Always

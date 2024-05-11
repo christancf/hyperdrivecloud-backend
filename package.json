@@ -1,0 +1,20 @@
+{
+  "name": "hyperdrivecloud-backend",
+  "version": "1.0.0",
+  "description": "cloud provider backend",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env src/app.js",
+    "dev": "node --env-file=.env --watch --watch-path=./src src/app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0"
+  }
+}
