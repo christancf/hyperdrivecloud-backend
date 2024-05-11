@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { registerUser } from "../services/user.js";
+import { registerUser, resetPasswordService } from "../services/user.js";
 
 const authRouter = Router();
 
 authRouter.post("/signup", registerUser);
-
+authRouter.get("/reset-password/:email", resetPasswordService);
 export default authRouter;
