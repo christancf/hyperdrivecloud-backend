@@ -1,25 +1,20 @@
 import auth from "../database/firebase.js";
 
-export const signUpUser = (data) => {
-  auth
-    .createUser({
+export const signUpUser = async (data) => {
+  try {
+    const user = await auth.createUser({
       email: data.email,
       emailVerified: false,
-      phoneNumber: data.phoneNumber,
       password: data.password,
       displayName: data.displayName,
       disabled: false,
-    })
-    .then((userRecord) => {
-      // See the UserRecord reference doc for the contents of userRecord.
-      console.log("Successfully created new user:", userRecord.uid);
-      return {
-        message: `Successfully created new user ${userRecord.uid}`,
-      };
-    })
-    .catch((error) => {
-      console.log("Error creating new user:", error);
     });
+    return {
+      message: `Successfully created new user ${user.uid}`,
+    };
+  } catch (error) {
+    console.log("Error creating new user:", error);
+  }
 };
 
 export const removeUser = (uid) => {

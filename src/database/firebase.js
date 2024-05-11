@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase-admin/app";
-import { firebaseConfig } from "./hyperdrive-cloud-firebase-adminsdk-snoph-19b0249c85";
+import admin from "firebase-admin";
+import { firebaseConfig } from "./hyperdrive-cloud-firebase-adminsdk-snoph-19b0249c85.js";
 
-const { getAuth } = require("firebase-admin/auth");
+import { getAuth } from "firebase-admin/auth";
 
 initializeApp({
   credential: admin.credential.cert(firebaseConfig),
